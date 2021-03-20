@@ -1,0 +1,45 @@
+C:\Users\lalor\source\repos\Calculator\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\lalor\source\repos\Calculator\Calculator\bin\Debug\Calculator.exe
+C:\Users\lalor\source\repos\Calculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\MainWindow.g.cs
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\App.g.cs
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator_MarkupCompile.cache
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator_MarkupCompile.lref
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\MainWindow.baml
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator.g.resources
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator.exe
+C:\Users\lalor\source\repos\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\bin\Debug\Calculator.exe
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\MainWindow.g.cs
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\App.g.cs
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator_MarkupCompile.cache
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator_MarkupCompile.lref
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\MainWindow.baml
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator.g.resources
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator.exe
+C:\Users\Al Jamil\Desktop\Calculator\Calculator\obj\Debug\Calculator.pdb
+D:\Self Study\Projects\WPF\Calculator\Calculator\bin\Debug\Calculator.exe.config
+D:\Self Study\Projects\WPF\Calculator\Calculator\bin\Debug\Calculator.exe
+D:\Self Study\Projects\WPF\Calculator\Calculator\bin\Debug\Calculator.pdb
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\MainWindow.g.cs
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\App.g.cs
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator_MarkupCompile.cache
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator_MarkupCompile.lref
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\MainWindow.baml
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator.g.resources
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator.exe
+D:\Self Study\Projects\WPF\Calculator\Calculator\obj\Debug\Calculator.pdb
