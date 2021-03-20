@@ -23,8 +23,8 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="resultLabel" Content="0"
-               HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               FontSize="60" Grid.Column="4" Margin="0,0,0,0.2"/>
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"
+               FontSize="60" Grid.Column="1" Margin="0,0,0,10.2" Width="314" Grid.ColumnSpan="4" FlowDirection="RightToLeft"/>
 
         <Button x:Name="acButton" Content="AC" Grid.Row="1" Margin="5,4.8,4.6,5.2" Grid.ColumnSpan="2" Click="acButton_Click"/>
         <Button x:Name="signValueButton" Content="+/-" Grid.Row="1" Grid.Column="2" Margin="5.4,4.8,5.4,5.2"/>
