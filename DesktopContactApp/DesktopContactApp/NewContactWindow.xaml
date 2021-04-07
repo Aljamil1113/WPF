@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="NewContactWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="10">
             <TextBox x:Name="nameTextBox" Margin="0,0,0,5"></TextBox>
             <TextBox x:Name="emailTextBox" Margin="0,0,0,5"></TextBox>
             <TextBox x:Name="phoneTextBox" Margin="0,0,0,5"></TextBox>
-            <Button Content="Save" Click="Button_Click"></Button>
+            <Button Content="Save" Click="Save_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DesktopContactApp.Classes;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,9 +24,24 @@ namespace DesktopContactApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
+            Contact contact = new Contact
+            {
+                Name = nameTextBox.Text,
+                Email = emailTextBox.Text,
+                Phone = phoneTextBox.Text
+            };
 
+           
+
+            using (SQLiteConnection connection = new SQLiteConnection(App.databasePath))
+            {
+                connection.CreateTable<Contact>();
+                connection.Insert(contact);
+            }
+
+            Close();
         }
     }
 }
