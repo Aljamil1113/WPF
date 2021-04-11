@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using WeatherApp.Model;
+using WeatherApp.ViewModel.Commands;
+using WeatherApp.ViewModel.Helpers;
 
 namespace WeatherApp.ViewModel
 {
@@ -45,6 +47,8 @@ namespace WeatherApp.ViewModel
             }
         }
 
+        public SearchCommand SearchCommand { get; set; }
+
         public WeatherVM()
         {
             if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
@@ -66,7 +70,14 @@ namespace WeatherApp.ViewModel
                     }
                 };
             }
+
+            SearchCommand = new SearchCommand(this);
             
+        }
+
+        public async void MakeQuery()
+        {
+            var cities = await AccuWeatherHelper.GetCities(Query);
         }
 
 
