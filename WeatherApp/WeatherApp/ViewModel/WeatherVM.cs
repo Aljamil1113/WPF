@@ -85,6 +85,7 @@ namespace WeatherApp.ViewModel
             Query = string.Empty;
             Cities.Clear();
             CurrentConditions = await AccuWeatherHelper.GetCurrentConditions(SelectedCity.Key);
+            
         }
 
         public async void MakeQuery()
