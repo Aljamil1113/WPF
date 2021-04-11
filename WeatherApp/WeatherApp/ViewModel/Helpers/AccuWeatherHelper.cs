@@ -37,7 +37,7 @@ namespace WeatherApp.ViewModel.Helpers
         {
             CurrentCondition currentConditions = new CurrentCondition();
 
-            string url = BASE_URL + string.Format(AUTOCOMPLETE_ENDPOINT, cityKey, API_KEY);
+            string url = BASE_URL + string.Format(CURRENT_CONDITION_ENDPOINT, cityKey, API_KEY);
 
             using (HttpClient client = new HttpClient())
             {
@@ -46,7 +46,6 @@ namespace WeatherApp.ViewModel.Helpers
 
                 currentConditions = (JsonConvert.DeserializeObject<List<CurrentCondition>>(json)).FirstOrDefault();
             }
-
             return currentConditions; 
         }
     }
