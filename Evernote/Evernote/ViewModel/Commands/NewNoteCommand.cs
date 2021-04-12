@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Evernote.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
@@ -16,12 +17,17 @@ namespace Evernote.ViewModel.Commands
         }
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            Notebook selectedNotebook = parameter as Notebook;
+            if (selectedNotebook != null)
+                return true;
+
+            return false;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            Notebook selectedNotebook = parameter as Notebook;
+            VM.CreateNote(selectedNotebook.Id);
         }
     }
 }

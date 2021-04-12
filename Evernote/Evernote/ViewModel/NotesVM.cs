@@ -1,5 +1,6 @@
 ﻿using Evernote.Model;
 using Evernote.ViewModel.Commands;
+using Evernote.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,28 @@ namespace Evernote.ViewModel
         {
             NewNotebookCommand = new NewNotebookCommand(this);
             NewNoteCommand = new NewNoteCommand(this);
+        }
+
+        public void CreateNotebook()
+        {
+            Notebook notebook = new Notebook()
+            {
+                Name = "New Notebook"
+            };
+            DatabaseHelper.Insert(notebook);
+        }
+
+        public void CreateNote(int notebookId)
+        {
+            Note newNote = new Note()
+            {
+                NotebookId = notebookId,
+                CreatedAt = DateTime.Now,
+                UpdateAt = DateTime.Now,
+                Title = "New Note"
+            };
+
+            DatabaseHelper.Insert(newNote);
         }
 
     }
