@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:Evernote.View"
         xmlns:uc="clr-namespace:Evernote.UserControls"
         xmlns:vm="clr-namespace:Evernote.ViewModel"
@@ -36,8 +37,26 @@
                       ItemsSource="{Binding Notebooks}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!--<TextBlock Text="{Binding Name}"></TextBlock>-->
-                    <uc:DisplayNotebook Notebook="{Binding}"/>
+                    <Grid>
+                        <uc:DisplayNotebook Notebook="{Binding}" >
+                            <uc:DisplayNotebook.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Rename"
+                                          Command="{Binding Source={StaticResource vm}, Path=EditCommand}">
+                                    </MenuItem>
+                                </ContextMenu>
+                            </uc:DisplayNotebook.ContextMenu>
+                        </uc:DisplayNotebook>
+                        <TextBox Text="{Binding Name, Mode=TwoWay}" 
+                             Visibility="{Binding Source={StaticResource vm}, Path=IsVisible}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="LostFocus">
+                                    <i:InvokeCommandAction Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}"
+                                                           CommandParameter="{Binding}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                    </Grid>
                 </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -46,7 +65,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <!--<TextBlock Text="{Binding Title}"></TextBlock>-->
-                    <uc:DisplayNote Note="{Binding}"></uc:DisplayNote>
+                        <uc:DisplayNote Note="{Binding}"></uc:DisplayNote>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

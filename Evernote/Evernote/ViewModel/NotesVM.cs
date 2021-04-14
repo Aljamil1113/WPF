@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace Evernote.ViewModel
 {
@@ -25,13 +26,28 @@ namespace Evernote.ViewModel
             }
         }
 
+        private Visibility isVisible;
+
+        public Visibility IsVisible
+        {
+            get { return isVisible; }
+            set 
+            { 
+                isVisible = value;
+                OnPropertyChanged("IsVisible");
+            }
+        }
+
+
 
         public ObservableCollection<Note> Notes { get; set; }
 
         //Commands
         public NewNotebookCommand NewNotebookCommand { get; set; }
         public NewNoteCommand NewNoteCommand { get; set; }
+        public EditCommand EditCommand { get; set; }
         public ObservableCollection<Notebook> Notebooks { get; set; }
+        public EndEditingCommand EndEditingCommand { get; set; }
 
         private Notebook selectedNotebook;
 
@@ -41,9 +57,13 @@ namespace Evernote.ViewModel
         {
             NewNotebookCommand = new NewNotebookCommand(this);
             NewNoteCommand = new NewNoteCommand(this);
+            EditCommand = new EditCommand(this);
+            EndEditingCommand = new EndEditingCommand(this);
 
             Notebooks = new ObservableCollection<Notebook>();
             Notes = new ObservableCollection<Note>();
+
+            IsVisible = Visibility.Collapsed;
 
             GetNotebooks();
         }
@@ -107,6 +127,19 @@ namespace Evernote.ViewModel
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
+        public void StartEditing()
+        {
+            IsVisible = Visibility.Visible;
+        }
+
+        public void StopEditing(Notebook notebook)
+        {
+            IsVisible = Visibility.Collapsed;
+            DatabaseHelper.Update(notebook);
+            GetNotebooks();
         }
     }
 }
