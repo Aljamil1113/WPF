@@ -38,6 +38,18 @@ namespace Evernote.ViewModel
             }
         }
 
+        private Note selectedNote;
+
+        public Note SelectedNote
+        {
+            get { return selectedNote; }
+            set 
+            { 
+                selectedNote = value;
+                OnPropertyChanged("SelectedNote");
+                SelectedNoteChanged?.Invoke(this, new EventArgs());
+            }
+        }
 
 
         public ObservableCollection<Note> Notes { get; set; }
@@ -52,6 +64,7 @@ namespace Evernote.ViewModel
         private Notebook selectedNotebook;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler SelectedNoteChanged;
 
         public NotesVM()
         {
