@@ -44,12 +44,13 @@ namespace Evernote.View
             base.OnActivated(e);
 
             if(string.IsNullOrEmpty(App.UserId))
-            {
+            {  
                 LogInWindow logInWindow = new LogInWindow();
                 logInWindow.ShowDialog();
-
                 viewModel.GetNotebooks();
             }
+
+            this.Close();
         }
 
         private void ViewModel_SelectedNoteChanged(object sender, EventArgs e)
