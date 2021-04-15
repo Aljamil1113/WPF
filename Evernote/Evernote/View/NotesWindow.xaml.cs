@@ -39,6 +39,19 @@ namespace Evernote.View
             fontSizeComboBox.ItemsSource = fontSizes;
         }
 
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+
+            if(string.IsNullOrEmpty(App.UserId))
+            {
+                LogInWindow logInWindow = new LogInWindow();
+                logInWindow.ShowDialog();
+
+                viewModel.GetNotebooks();
+            }
+        }
+
         private void ViewModel_SelectedNoteChanged(object sender, EventArgs e)
         {
             contentRichTextBox.Document.Blocks.Clear();
