@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Evernote.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +18,18 @@ namespace Evernote.View
     /// </summary>
     public partial class LogInWindow : Window
     {
+        LoginVM viewModel;
         public LogInWindow()
         {
             InitializeComponent();
+
+            viewModel = Resources["vm"] as LoginVM;
+            viewModel.Authenticated += ViewModel_Autheticated;
+        }
+
+        private void ViewModel_Autheticated(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

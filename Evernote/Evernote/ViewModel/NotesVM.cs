@@ -85,7 +85,9 @@ namespace Evernote.ViewModel
         {
             Notebook notebook = new Notebook()
             {
-                Name = "New Notebook"
+                Name = "New Notebook",
+                UserId = App.UserId
+                
             };
             DatabaseHelper.Insert(notebook);
 
@@ -109,7 +111,7 @@ namespace Evernote.ViewModel
 
         public void GetNotebooks()
         {
-            var notebooks = DatabaseHelper.Read<Notebook>();
+            var notebooks = DatabaseHelper.Read<Notebook>().Where(n => n.UserId == App.UserId).ToList();
 
             Notebooks.Clear();
 

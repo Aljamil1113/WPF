@@ -49,8 +49,6 @@ namespace Evernote.View
                 logInWindow.ShowDialog();
                 viewModel.GetNotebooks();
             }
-
-            this.Close();
         }
 
         private void ViewModel_SelectedNoteChanged(object sender, EventArgs e)

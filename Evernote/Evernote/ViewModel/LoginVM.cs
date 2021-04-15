@@ -14,6 +14,7 @@ namespace Evernote.ViewModel
         private bool isShowingRegister = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler Authenticated;
 
         private Visibility loginVis;
         public Visibility LoginVis
@@ -180,12 +181,22 @@ namespace Evernote.ViewModel
 
         public async void Login()
         {
+            bool result = await FirebaseAuthHelper.Login(User);
 
+            if(result)
+            {
+                Authenticated?.Invoke(this, new EventArgs());
+            }
         }
 
         public async void Register()
         {
-            await FirebaseAuthHelper.Register(User);
+            bool result = await FirebaseAuthHelper.Register(User);
+
+            if(result)
+            {
+                Authenticated?.Invoke(this, new EventArgs());
+            }
         }
 
         private void OnPropertyChanged(string propertyName)
