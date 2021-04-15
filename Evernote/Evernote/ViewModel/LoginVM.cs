@@ -1,5 +1,6 @@
 ﻿using Evernote.Model;
 using Evernote.ViewModel.Commands;
+using Evernote.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -177,14 +178,14 @@ namespace Evernote.ViewModel
             }
         }
 
-        public void Login()
+        public async void Login()
         {
 
         }
 
-        public void Register()
+        public async void Register()
         {
-
+            await FirebaseAuthHelper.Register(User);
         }
 
         private void OnPropertyChanged(string propertyName)
