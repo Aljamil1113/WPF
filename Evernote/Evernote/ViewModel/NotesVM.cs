@@ -60,6 +60,8 @@ namespace Evernote.ViewModel
         public EditCommand EditCommand { get; set; }
         public ObservableCollection<Notebook> Notebooks { get; set; }
         public EndEditingCommand EndEditingCommand { get; set; }
+        public DeleteNotebookCommand DeleteNotebookCommand { get; set; }
+        public DeleteNoteCommand DeleteNoteCommand { get; set; }
 
         private Notebook selectedNotebook;
 
@@ -72,6 +74,8 @@ namespace Evernote.ViewModel
             NewNoteCommand = new NewNoteCommand(this);
             EditCommand = new EditCommand(this);
             EndEditingCommand = new EndEditingCommand(this);
+            DeleteNotebookCommand = new DeleteNotebookCommand(this);
+            DeleteNoteCommand = new DeleteNoteCommand(this);
 
             Notebooks = new ObservableCollection<Notebook>();
             Notes = new ObservableCollection<Note>();
@@ -154,6 +158,33 @@ namespace Evernote.ViewModel
             IsVisible = Visibility.Collapsed;
             await DatabaseHelper.Update(notebook);
             GetNotebooks();
+        }
+
+        public async void DeleteNotebook(Notebook notebook)
+        {
+            try
+            {
+                await DatabaseHelper.Delete(notebook);
+                GetNotebooks();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async void DeleteNote(Note note)
+        {
+            try
+            {
+                await DatabaseHelper.Delete(note);
+                GetNotes();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

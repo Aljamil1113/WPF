@@ -33,5 +33,7 @@ namespace Evernote.View
             notesWindow.ShowDialog();
             this.Close();
         }
+
+        
     }
 }

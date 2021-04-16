@@ -30,6 +30,7 @@ namespace Evernote.View
             InitializeComponent();
 
             viewModel = Resources["vm"] as NotesVM;
+            //container.DataContext = viewModel;
             viewModel.SelectedNoteChanged += ViewModel_SelectedNoteChanged;
 
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);

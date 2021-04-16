@@ -44,6 +44,9 @@
                                     <MenuItem Header="Rename"
                                           Command="{Binding Source={StaticResource vm}, Path=EditCommand}">
                                     </MenuItem>
+                                    <MenuItem Header="Delete"
+                                          Command="{Binding Source={StaticResource vm}, Path=DeleteNotebookCommand}">
+                                    </MenuItem>
                                 </ContextMenu>
                             </uc:DisplayNotebook.ContextMenu>
                         </uc:DisplayNotebook>
@@ -67,7 +70,16 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <!--<TextBlock Text="{Binding Title}"></TextBlock>-->
-                        <uc:DisplayNote Note="{Binding}"></uc:DisplayNote>
+                        <uc:DisplayNote Note="{Binding}">
+                        <uc:DisplayNote.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Delete Note" 
+                                          Command="{Binding Source={StaticResource vm}, Path=DeleteNoteCommand}"
+                                          CommandParameter="Binding">
+                                </MenuItem>
+                            </ContextMenu>
+                        </uc:DisplayNote.ContextMenu>
+                        </uc:DisplayNote>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -103,9 +115,13 @@
             </ToolBar>
             </ToolBarTray>
         <Grid>
-           <RichTextBox x:Name="contentRichTextBox"
+            <StackPanel>
+                <TextBox Margin="10"
+                         Text="{Binding Path=SelectedNote.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <RichTextBox x:Name="contentRichTextBox"
                         TextChanged="contentRichTextBox_TextChanged"
-                        SelectionChanged="contentRichTextBox_SelectionChanged"/> 
+                        SelectionChanged="contentRichTextBox_SelectionChanged"/>
+            </StackPanel>
         </Grid>
     </DockPanel>
    

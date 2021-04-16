@@ -79,7 +79,7 @@ namespace Evernote.ViewModel.Helpers
 
         public static async Task<bool> Delete<T>(T item) where T : HasId
         {
-            //bool result = false;
+            // bool result = false;
             //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
             //{
             //    conn.CreateTable<T>();
