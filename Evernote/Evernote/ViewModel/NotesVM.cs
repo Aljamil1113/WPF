@@ -81,7 +81,7 @@ namespace Evernote.ViewModel
             GetNotebooks();
         }
 
-        public void CreateNotebook()
+        public async void CreateNotebook()
         {
             Notebook notebook = new Notebook()
             {
@@ -89,12 +89,12 @@ namespace Evernote.ViewModel
                 UserId = App.UserId
                 
             };
-            DatabaseHelper.Insert(notebook);
+            await DatabaseHelper.Insert(notebook);
 
             GetNotebooks();
         }
 
-        public void CreateNote(int notebookId)
+        public async void CreateNote(string notebookId)
         {
             Note newNote = new Note()
             {
@@ -103,32 +103,31 @@ namespace Evernote.ViewModel
                 UpdateAt = DateTime.Now,
                 Title = $"New Note for {DateTime.Now.ToString()}"
             };
-            DatabaseHelper.Insert(newNote);
+            await DatabaseHelper.Insert(newNote);
 
             GetNotes();
         }
 
 
-        public void GetNotebooks()
+        public async void GetNotebooks()
         {
-            var notebooks = DatabaseHelper.Read<Notebook>().Where(n => n.UserId == App.UserId).ToList();
+           
+              var notebooks = (await DatabaseHelper.Read<Notebook>()).Where(n => n.UserId == App.UserId).ToList();
 
-            Notebooks.Clear();
+              Notebooks.Clear();
 
-            foreach (var notebook in notebooks)
-            {
-                Notebooks.Add(notebook);
-            }
+              foreach (var notebook in notebooks)
+              {
+                 Notebooks.Add(notebook);
+              }
         }
 
 
-        private void GetNotes()
+        private async void GetNotes()
         {
             if (selectedNotebook != null)
             {
-                var notes = DatabaseHelper.Read<Note>().Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
-
-
+                var notes = (await DatabaseHelper.Read<Note>()).Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
 
                 Notes.Clear();
 
@@ -150,10 +149,10 @@ namespace Evernote.ViewModel
             IsVisible = Visibility.Visible;
         }
 
-        public void StopEditing(Notebook notebook)
+        public async void StopEditing(Notebook notebook)
         {
             IsVisible = Visibility.Collapsed;
-            DatabaseHelper.Update(notebook);
+            await DatabaseHelper.Update(notebook);
             GetNotebooks();
         }
     }

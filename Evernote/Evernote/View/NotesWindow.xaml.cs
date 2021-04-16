@@ -169,11 +169,11 @@ namespace Evernote.View
             contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontSizeProperty, fontSizeComboBox.Text);
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, $"{viewModel.SelectedNote.Id}.rtf");
             viewModel.SelectedNote.FileLocation = rtfFile;
-            DatabaseHelper.Update(viewModel.SelectedNote);
+            await DatabaseHelper.Update(viewModel.SelectedNote);
 
             FileStream fileStream = new FileStream(rtfFile, FileMode.Create);
             var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);

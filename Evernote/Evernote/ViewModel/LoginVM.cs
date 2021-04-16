@@ -1,4 +1,5 @@
 ﻿using Evernote.Model;
+using Evernote.View;
 using Evernote.ViewModel.Commands;
 using Evernote.ViewModel.Helpers;
 using System;

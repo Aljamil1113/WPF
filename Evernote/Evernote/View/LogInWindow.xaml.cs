@@ -29,7 +29,9 @@ namespace Evernote.View
 
         private void ViewModel_Autheticated(object sender, EventArgs e)
         {
-            Close();
+            NotesWindow notesWindow = new NotesWindow();
+            notesWindow.ShowDialog();
+            this.Close();
         }
     }
 }
